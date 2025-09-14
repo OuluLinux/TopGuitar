@@ -11,7 +11,7 @@ public:
 
     void InitMainContext();
     void InitUIContext();
-    void StartUIContext(MainWindow& window);
+    void StartUIContext(MainWindow& window, const Upp::String& open_path = Upp::String());
 
     bool IsInitialized() const { return initialized_; }
 
@@ -21,4 +21,3 @@ private:
 private:
     bool initialized_{false};
 };
-

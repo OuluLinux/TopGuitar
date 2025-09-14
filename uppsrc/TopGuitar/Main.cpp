@@ -72,12 +72,21 @@ GUI_APP_MAIN
 #endif
 
     // Bootstrap lifecycle
+    Upp::String open_path;
+    const Upp::Vector<Upp::String>& args = CommandLine();
+    for (int i = 0; i < args.GetCount(); ++i) {
+        const Upp::String& a = args[i];
+        if (a == "--open" && i + 1 < args.GetCount()) {
+            open_path = args[++i];
+        } else if (!a.IsEmpty() && a[0] != '-') {
+            if (open_path.IsEmpty()) open_path = a;
+        }
+    }
     TopGuitarApp& app = TopGuitarApp::Get();
     app.InitMainContext();
     app.InitUIContext();
 
     MainWindow win;
-    app.StartUIContext(win);
+    app.StartUIContext(win, open_path);
     win.Run();
 }
-

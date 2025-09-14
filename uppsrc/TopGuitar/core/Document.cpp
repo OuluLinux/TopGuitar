@@ -14,3 +14,8 @@ void DocumentManager::OpenDefault() {
     unwanted_ = false;
 }
 
+void DocumentManager::OpenFile(const Upp::String& path) {
+    current_path_ = path;
+    unwanted_ = false;
+    // TODO: parse supported formats and load content.
+}

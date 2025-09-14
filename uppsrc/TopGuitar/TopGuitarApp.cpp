@@ -22,7 +22,7 @@ void TopGuitarApp::InitUIContext() {
     // TODO: set up UI-specific state if needed
 }
 
-void TopGuitarApp::StartUIContext(MainWindow& window) {
+void TopGuitarApp::StartUIContext(MainWindow& window, const Upp::String& open_path) {
     // Initialize player (stub)
     static MidiPlayerStub player;
     player.Initialize();
@@ -30,8 +30,18 @@ void TopGuitarApp::StartUIContext(MainWindow& window) {
     // Restore UI/config (stub)
     // TODO: apply window geometry, show optional panels, etc.
 
-    // Open default document (stub)
-    DocumentManager::Get().OpenDefault();
+    // Open file if provided, else default document
+    if(!IsNull(open_path) && !open_path.IsEmpty())
+        DocumentManager::Get().OpenFile(open_path);
+    else
+        DocumentManager::Get().OpenDefault();
+
+    // Update status bar
+    const Upp::String& path = DocumentManager::Get().CurrentPath();
+    if(path.IsEmpty())
+        window.SetStatus("Untitled");
+    else
+        window.SetStatus(path);
 
     initialized_ = true;
 }
