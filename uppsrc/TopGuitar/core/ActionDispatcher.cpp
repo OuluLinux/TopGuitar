@@ -1,5 +1,3 @@
-// Action dispatcher (very light stub)
-
 #include "ActionDispatcher.h"
 
 using namespace Upp;

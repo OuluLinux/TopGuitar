@@ -1,0 +1,14 @@
+file
+	ActionDispatcher.h,
+	ActionDispatcher.cpp,
+	Config.h,
+	Config.cpp,
+	Document.h,
+	Document.cpp,
+	Log.h,
+	Log.cpp,
+	Player.h,
+	PlayerStub.cpp,
+	Recent.h,
+	Recent.cpp;
+

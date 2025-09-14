@@ -8,6 +8,8 @@ public:
     static DocumentManager& Get();
     void OpenDefault();
     void OpenFile(const Upp::String& path);
+    void NewDocument();
+    void SetCurrentPath(const Upp::String& path);
     bool HasUnwanted() const { return unwanted_; }
     const Upp::String& CurrentPath() const { return current_path_; }
 private:

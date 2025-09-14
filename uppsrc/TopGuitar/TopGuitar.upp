@@ -1,16 +1,19 @@
-description "TopGuitar main program (U++ skeleton)"
+description "TopGuitar main program (U++ skeleton)\377";
 
 uses
-	Core
-	CtrlCore
-	CtrlLib
+	Core,
+	CtrlLib,
+	TopGuitar/core,
+	TopGuitar/views;
 
 file
-	Main.cpp
-	TopGuitarApp.cpp
-	MainWindow.cpp
-	core/Config.cpp
-	core/ActionDispatcher.cpp
-	core/PlayerStub.cpp
-	core/Document.cpp
+	TopGuitar.h,
+	TopGuitarApp.h,
+	TopGuitarApp.cpp,
+	MainWindow.h,
+	MainWindow.cpp,
+	Main.cpp;
+
+mainconfig
+	"" = "GUI";
 

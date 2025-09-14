@@ -12,6 +12,8 @@ public:
 
     void SetBool(const Upp::String& key, bool value);
     bool GetBool(const Upp::String& key, bool def = false) const;
+    void SetInt(const Upp::String& key, int value);
+    int GetInt(const Upp::String& key, int def = 0) const;
 
     void Load(); // TODO: persist
     void Save() const; // TODO: persist
@@ -21,4 +23,3 @@ private:
 
     Upp::VectorMap<Upp::String, Upp::String> kv_;
 };
-

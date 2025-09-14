@@ -1,10 +1,4 @@
-// TopGuitar — U++ skeleton main
-
-#include <CtrlLib/CtrlLib.h>
-#include "TopGuitarApp.h"
-#include "MainWindow.h"
-
-using namespace Upp;
+#include "TopGuitar.h"
 
 namespace {
 
@@ -15,7 +9,7 @@ public:
     SingleInstanceGuard() : h_(NULL) {}
     ~SingleInstanceGuard() { if (h_) CloseHandle(h_); }
     bool Acquire(const WString& name) {
-        h_ = CreateMutexW(NULL, FALSE, name.ToWString());
+        h_ = CreateMutexW(NULL, FALSE, std::wstring(name).c_str());
         if (!h_)
             return true; // fail open
         if (GetLastError() == ERROR_ALREADY_EXISTS)
@@ -89,4 +83,7 @@ GUI_APP_MAIN
     MainWindow win;
     app.StartUIContext(win, open_path);
     win.Run();
+
+    // Final save of configuration on exit
+    ConfigService::Get().Save();
 }

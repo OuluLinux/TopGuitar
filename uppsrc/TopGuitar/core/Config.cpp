@@ -31,11 +31,39 @@ bool ConfigService::GetBool(const String& key, bool def) const {
     return v == "1" || ToLower(v) == "true";
 }
 
+void ConfigService::SetInt(const String& key, int value) {
+    Set(key, AsString(value));
+}
+
+int ConfigService::GetInt(const String& key, int def) const {
+    int i = kv_.Find(key);
+    if (i < 0) return def;
+    return Nvl(StrInt(kv_.Get(i)), def);
+}
+
 void ConfigService::Load() {
-    // TODO: implement persistence (e.g., JSON or .cfg in appdata)
+    kv_.Clear();
+    String path = ConfigFile("TopGuitar.cfg");
+    if(!FileExists(path)) return;
+    FileIn in(path);
+    if(!in) return;
+    while(!in.IsEof()) {
+        String line = TrimBoth(in.GetLine());
+        if(line.IsEmpty() || line[0] == '#') continue;
+        int p = line.Find('=');
+        if(p <= 0) continue;
+        String key = TrimBoth(line.Left(p));
+        String val = TrimBoth(line.Mid(p+1));
+        Set(key, val);
+    }
 }
 
 void ConfigService::Save() const {
-    // TODO: implement persistence
+    String path = ConfigFile("TopGuitar.cfg");
+    RealizePath(path);
+    FileOut out(path);
+    if(!out) return;
+    for(int i = 0; i < kv_.GetCount(); ++i) {
+        out << kv_.GetKey(i) << "=" << kv_.Get(i) << "\n";
+    }
 }
-

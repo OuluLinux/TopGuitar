@@ -1,0 +1,5 @@
+file
+	DocumentView.h,
+	DocumentView.cpp,
+	LogWindow.h,
+	LogWindow.cpp;
