@@ -1,0 +1,16 @@
+description "TopGuitar main program (U++ skeleton)"
+
+uses
+	Core
+	CtrlCore
+	CtrlLib
+
+file
+	Main.cpp
+	TopGuitarApp.cpp
+	MainWindow.cpp
+	core/Config.cpp
+	core/ActionDispatcher.cpp
+	core/PlayerStub.cpp
+	core/Document.cpp
+
