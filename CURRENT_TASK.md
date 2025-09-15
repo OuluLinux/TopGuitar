@@ -46,18 +46,31 @@ Checklist
 
 - [x] Inventory core modules and entry points
 - [x] Establish port focus and exclusions
-- [ ] Scaffold U++ package and minimal window
-- [ ] Implement single-instance lock (Windows/Linux/macOS)
-- [ ] Add `TopGuitarApp` bootstrap mirroring Java lifecycle
-- [ ] Add config stub and simple persistence
-- [ ] Add action dispatcher stub
-- [ ] Add player interface stub (no sound yet)
-- [ ] Open default empty document workflow
+- [x] Scaffold U++ package and minimal window
+- [x] Implement single-instance lock (Windows/Linux/macOS) — lock file held open (bring-to-front pending)
+- [x] Add `TopGuitarApp` bootstrap mirroring Java lifecycle
+- [x] Add config stub and simple persistence
+- [x] Add action dispatcher stub
+- [x] Add player interface stub (no sound yet)
+- [x] Open default empty document workflow
 - [ ] Build and run in TheIDE
+
+Added in this pass
+
+- Menu: File (New/Open/Save/Exit), Help (About)
+- Status bar with simple messages
+- Command-line `--open <file>` and File/Open dialog
 
 Next Up (Proposed)
 
-- Create `uppsrc/TopGuitar` package skeleton and a hello-window app that compiles.
-- Add single-instance + basic command-line `--open <file>` handling.
-- Wire app lifecycle methods (`InitMainContext`, `InitUIContext`, `StartUIContext`).
+- Implement Save (stub UI -> actual persistence when model lands)
+- Add recent files list to File menu using config
+- Remember/restoring window geometry in config
+- Wire a simple central view area (placeholder widget for score)
+
+Next Up (Proposed)
+
+- Verify build in TheIDE and run the hello-window.
+- Implement default empty document creation and UI plumbing.
+- Add basic command-line `--open <file>` workflow to open path in UI.
 
