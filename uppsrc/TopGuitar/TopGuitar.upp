@@ -3,8 +3,8 @@ description "TopGuitar main program (U++ skeleton)\377";
 uses
 	Core,
 	CtrlLib,
-	TopGuitar/core,
-	TopGuitar/views;
+	TopGuitar/Core,
+	TopGuitar/Views;
 
 file
 	TopGuitar.h,

@@ -5,6 +5,7 @@
 
 class LogWindow : public Upp::TopWindow {
 public:
+	typedef LogWindow CLASSNAME;
     LogWindow();
     void LoadLog();
 
