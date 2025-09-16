@@ -60,13 +60,27 @@ Added in this pass
 - Menu: File (New/Open/Save/Exit), Help (About)
 - Status bar with simple messages
 - Command-line `--open <file>` and File/Open dialog
+- Save and Save As (placeholder persistence)
+- Recent files menu with clear + persisted list
+- Window geometry persistence (position/size/maximized)
+- Central placeholder view for the score area
+ - Unsaved-changes prompts (New/Open/Exit) and title '*' indicator
+ - Edit menu actions to toggle modified state; view shows modified indicator
 
 Next Up (Proposed)
 
-- Implement Save (stub UI -> actual persistence when model lands)
-- Add recent files list to File menu using config
-- Remember/restoring window geometry in config
-- Wire a simple central view area (placeholder widget for score)
+- Hook document modified state to title/status
+- Add recent files cap to config (tunable) and MRU ordering tweaks
+- Add Save confirmation for overwrites
+- Replace placeholder view with the actual score component skeleton
+- Add zoom/pan scaffolding in the view and mouse handlers
+- View menu: Zoom In/Out/Reset with shortcuts; Ctrl+Wheel zoom; middle-drag pan
+- Status bar shows zoom/pan; view emits change callback
+- Keyboard panning (arrows/page up/down), Home to reset pan; Ctrl+Plus/Minus/0 mapped too
+- Scene layer scaffold: `ScoreScene` draws staffs; `ScoreView` delegates rendering
+- Measure separators and clef placeholders added; cursor overlay draws at current position
+- Cursor navigation (arrows) with auto-ensure visible; status reflects cursor
+ - Transport menu (Play/Pause, Stop, Prev/Next measure); playback cursor (green) with timer-based stepping per measure using time signature and tempo
 
 Next Up (Proposed)
 
